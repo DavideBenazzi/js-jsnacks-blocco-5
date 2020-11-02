@@ -53,9 +53,9 @@ $(document).ready( function () {
       nomiNuovo.push(nomi[c]);
     }
   }
-  console.log(nomi);
-  console.log(min , max);
-  console.log(nomiNuovo);
+  console.log('L\'array di nomi è : ' + nomi);
+  console.log('L\'indice minimo è : '+ min + ' e quello massimo è : ' + max);
+  console.log('L\'array di nomi nuovo è : ' + nomiNuovo);
 
   /*
   JSNACK 3
@@ -63,6 +63,54 @@ $(document).ready( function () {
   Creiamo una copia da questo array di partenza e aggiungiamo ai singoli elementi una nuova proprietà position che contiene una lettera casuale.
   Non dobbiamo modificare l'array iniziale.
   */
+  //ARRAY DI OGGETTI
+  var oggetti = [
+    {
+      nome: 'palla',
+      peso: 1,
+      colore: 'giallo',
+    },
+    {
+      nome: 'bottiglia',
+      peso: 2,
+      colore: 'blu',
+    },
+    {
+      nome: 'giacca',
+      peso: 3,
+      colore: 'nero',
+    },
+    {
+      nome: 'libro',
+      peso: 1,
+      colore: 'bianco',
+    },
+  ];
+  console.table(oggetti);
+  //CICLO PER COSTRUIRE NUOVO ARRAY
+  var nuovoArray = [];
+  var oggettiNuovo = {};
+  for (var d = 0; d < oggetti.length; d++) {
+    oggettiNuovo = {
+      nome: oggetti[d].nome ,
+      peso: oggetti[d].peso ,
+      colore: oggetti[d].colore ,
+      position: randomLet() ,
+    };
+    nuovoArray.push(oggettiNuovo);
+  };
+  console.table(nuovoArray);
 
 
 }); //END DOCUMENT READY
+
+//UTILITY
+// FUNZIONE NUMERI RANDOM
+function randomNum (min , max) {
+  return Math.floor( Math.random() * (max - min + 1) ) + min;
+};
+// FUNZIONE LETTERA RANDOM
+function randomLet () {
+  var alfabeto = ['a','b','c','d','e','f','g','h','i','l','m','n','o','p','q','r','s','t','u','v','z'];
+  return alfabeto[randomNum(0 , alfabeto.length - 1)];
+};
