@@ -13,8 +13,8 @@ Creiamo una copia da questo array di partenza e aggiungiamo ai singoli elementi 
 Non dobbiamo modificare l'array iniziale.
 */
 
-// JSNACK 1
 $(document).ready( function () {
+// JSNACK 1
   //CREO UN ARRAY DI OGGETTI
   var biciclette = [
     {
@@ -37,9 +37,14 @@ $(document).ready( function () {
       leggera = biciclette[i];
     }
   }
-  
+  // HANDLEBARS
+  var source = $('#entry-template').html();
+  var template = Handlebars.compile(source);
 
+  var context = { bici: leggera.nome, peso: leggera.peso };
+  var html = template(context);
 
+  $('.jsnack1').append(html);
 
 
 
