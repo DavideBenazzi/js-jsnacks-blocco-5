@@ -12,3 +12,35 @@ Creiamo un array di oggetti (scelti da voi)
 Creiamo una copia da questo array di partenza e aggiungiamo ai singoli elementi una nuova proprietà position che contiene una lettera casuale.
 Non dobbiamo modificare l'array iniziale.
 */
+
+// JSNACK 1
+$(document).ready( function () {
+  //CREO UN ARRAY DI OGGETTI
+  var biciclette = [
+    {
+      nome: 'Pinarello',
+      peso: 10,
+    },
+    {
+      nome: 'Bianchi',
+      peso: 8,
+    },
+    {
+      nome: 'Scott',
+      peso: 11,
+    },
+  ];
+  //CICLO PER STABILIRE LA BICLETTA CON PESO MINORE
+  var leggera = biciclette[0];
+  for (var i = 0; i < biciclette.length; i++) {
+    if (biciclette[i].peso < leggera.peso) {
+      leggera = biciclette[i];
+    }
+  }
+  
+
+
+
+
+
+}); //END DOCUMENT READY
